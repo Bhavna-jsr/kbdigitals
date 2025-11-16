@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import PropTypes from 'prop-types';
+import { HiCheckCircle } from 'react-icons/hi';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -43,10 +44,16 @@ const FeaturedCarousel = ({ featuredBrands }) => {
                       {brand.description || 'Join today and get rewarded with Cash Back at the stores you love every time you shop. Savings are waiting, so sign up now to start earning.'}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <button className="px-8 py-3 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
+                      <button 
+                        onClick={() => window.open(brand.url, '_blank', 'noopener,noreferrer')}
+                        className="px-8 py-3 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                      >
                         Shop Now
                       </button>
-                      <button className="px-8 py-3 bg-white text-purple-600 rounded-full font-semibold hover:bg-gray-50 transition-colors duration-200 border-2 border-purple-600">
+                      <button 
+                        onClick={() => window.open(brand.url, '_blank', 'noopener,noreferrer')}
+                        className="px-8 py-3 bg-white text-purple-600 rounded-full font-semibold hover:bg-gray-50 transition-colors duration-200 border-2 border-purple-600"
+                      >
                         Learn More
                       </button>
                     </div>
@@ -96,9 +103,7 @@ const FeaturedCarousel = ({ featuredBrands }) => {
                         
                         {brand.boosted && (
                           <div className="absolute top-4 -right-4 bg-green-500 text-white rounded-full px-4 py-2 shadow-lg flex items-center gap-1 animate-bounce-slow">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
+                            <HiCheckCircle className="w-4 h-4" />
                             <span className="text-sm font-medium">Boosted</span>
                           </div>
                         )}
